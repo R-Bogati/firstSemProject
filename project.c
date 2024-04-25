@@ -2,6 +2,7 @@
 #include<string.h>
 #include<stdlib.h>
 #include<ctype.h>
+#include<unistd.h>
 
 #define maxWords 1000
 #define maxWordLen 50
@@ -18,6 +19,25 @@ int main()
     FILE *file2;
     char file1Name[20],file2Name[20];
     float similarityPercent;
+
+    printf("\n\t\t\t\t\t");
+	printf("\033[1mPlagX\033[0m\n\n");
+	printf("\t\t\t\t");
+
+    printf("Loading");
+    fflush(stdout);
+
+
+    for (i=0; i<15; i++)
+        {
+            usleep(500000);
+            printf(".");
+            fflush(stdout);
+        }
+
+    system("cls");
+    printf("\t \t \t \t ");
+	printf("\033[1mPlagX\033[0m\n\n");
 
     printf("Enter the name of first file: ");
     scanf("%s",file1Name);
@@ -39,6 +59,7 @@ int main()
 
     fclose(file1);
     fclose(file2);
+    return 0;
 }
 
 void removePunctuation(char *word)
