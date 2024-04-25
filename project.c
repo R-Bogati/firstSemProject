@@ -89,7 +89,7 @@ float checkSimilarity(FILE *file1, FILE *file2)
     {
         removePunctuation(word2);
         lowercase(word2);
-        strcpy(words2[numOfWords2],word1);
+        strcpy(words2[numOfWords2],word2);
         numOfWords2=numOfWords2+1;
 
         for(i=0;i<numOfWords1;i++)
