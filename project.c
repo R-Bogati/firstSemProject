@@ -17,6 +17,7 @@ int main()
 {
     FILE *file1;
     FILE *file2;
+    FILE *output;
     char file1Name[20],file2Name[20];
     float similarityPercent;
 
@@ -28,7 +29,7 @@ int main()
     fflush(stdout);
 
 
-    for (i=0; i<15; i++)
+    for (i=0; i<10; i++)
         {
             usleep(500000);
             printf(".");
@@ -46,6 +47,7 @@ int main()
 
     file1=fopen(file1Name,"r");
     file2=fopen(file2Name,"r");
+    output=fopen("result.txt","a");
 
     if(file1==NULL || file2==NULL)
     {
@@ -54,7 +56,7 @@ int main()
     }
 
     similarityPercent=checkSimilarity(file1, file2);
-
+    fprintf(output, "Similarity between %s and %s = %.2f%%\n", file1Name,file2Name,similarityPercent);
     printf("Similarity Percentage= %.2f%%",similarityPercent);
 
     fclose(file1);
